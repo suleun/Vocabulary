@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-client = MongoClient('13.125.224.154', 27017, username="test", password="test")
+client = MongoClient('IP', DB_PORT, username="", password="")
 db = client.dbsparta_plus_week2
 
 
@@ -22,7 +22,7 @@ def detail(keyword):
     status_receive = request.args.get("status_give")
 
     r = requests.get(f"https://owlbot.info/api/v4/dictionary/{keyword}",
-                     headers={"Authorization": "Token 10acd85b5a03b36dc6183e9de8d8676ea15c18d1"})
+                     headers={"Authorization": "Token token_num"})
 
     if r.status_code != 200:
         return redirect(url_for("main", msg="누구세요"))
